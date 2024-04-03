@@ -1,4 +1,5 @@
 import './App.css'
+import Game from './Components/Game/game'
 
 function App() {
   
@@ -12,9 +13,8 @@ function App() {
         </p>
       </div>
       <div>
-        
+        <Game />
       </div>
-      
     </>
   )
 }
