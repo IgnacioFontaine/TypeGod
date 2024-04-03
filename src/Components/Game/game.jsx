@@ -82,7 +82,8 @@ const Game = () => {
     
   }
 
-  function gameOver(){
+  function gameOver() {
+    alert("Game Over")
     console.log("Game Over");
   }
   
