@@ -43,7 +43,15 @@ const Game = () => {
     }, 1000)
     
   } 
-  // function initEvents() { }
+  
+  function initEvents() {
+    document.addEventListener('keydown',()=>{
+      $input.focus()
+    })
+
+    $input.addEventListener('keydown',onKeyDown)
+    $input.addEventListener('keyup',onKeyUp)
+   }
 
   function gameOver(){
     console.log("Game Over");
