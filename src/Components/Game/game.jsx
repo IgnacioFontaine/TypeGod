@@ -51,7 +51,36 @@ const Game = () => {
 
     $input.addEventListener('keydown',onKeyDown)
     $input.addEventListener('keyup',onKeyUp)
-   }
+  }
+  
+  function onKeyDown(){}
+
+  function onKeyUp(){
+    const $currentWord = $paragraph.querySelector('word.active')
+    const $currentLetter = $currentWord.querySelector('letter.active')
+
+    
+    const currentWord = $currentWord.innerText.trim()
+    $input.maxLength = currentWord.lenght
+
+    console.log({value:$input.value, currentWord});
+    
+
+    const $allLetters = $currentWord.querySelectorAll('letter')
+
+    $input.value.slice("").forEach((char, index)=>{
+      const $letter = $allLetters[index]
+      const letterToCheck = currentWord[index]
+
+      const isCorrect = char === letterToCheck;
+
+      const letterClass = isCorrect ? "correct" : "incorrect"
+
+      $letter.classList.add(letterClass)
+
+    })
+    
+  }
 
   function gameOver(){
     console.log("Game Over");
