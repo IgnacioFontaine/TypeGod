@@ -27,6 +27,11 @@ const Game = () => {
         </word>`
     })
 
+    const $fisrtWord = $paragraph.querySelector('word')
+    $fisrtWord.classList.add('active')
+    $fisrtWord.querySelector('letter').classList.add('active')
+    
+
     const intervalID = setInterval(()=>{
       currentTime--
       $time.textContent = currentTime;
