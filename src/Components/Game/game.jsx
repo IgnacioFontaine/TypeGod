@@ -5,22 +5,44 @@ const Game = () => {
 
   const INITIAL_TIME = 30;
 
-  const TEXT = "They will have the following structure: first page same as the original articles, summary in Castilian and English; then, the introduction should be a short paragraph that gives some message about the case."
+  const TEXT = "They will have the following structure: first page same as the original articles summary in Castilian and English then the introduction should be a short paragraph that gives some message about the case"
 
   let words = [];
   let currentTime = INITIAL_TIME;
 
   initGame()
-  initEvents()
+  // initEvents()
 
   function initGame() {
     words = TEXT.split(" ").slice(0, 32);
-    currentTime = INITIAL_TIME;
+    let currentTime = INITIAL_TIME;
 
     $time.textContent = currentTime;
+
+    $paragraph.innerHTML = words.map((word, index)=>{
+      const letters = word.split("")
+
+      return`<word>
+        ${letters.map(letter=>`<letter>${letter}</letter>`).join('')}
+        </word>`
+    })
+
+    const intervalID = setInterval(()=>{
+      currentTime--
+      $time.textContent = currentTime;
+
+      if(currentTime === 0){
+        clearInterval(intervalID)
+        gameOver()
+      }
+    }, 1000)
     
   } 
-  function initEvents() { }
+  // function initEvents() { }
+
+  function gameOver(){
+    console.log("Game Over");
+  }
   
 
   return (
