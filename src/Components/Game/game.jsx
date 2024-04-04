@@ -72,11 +72,23 @@ const Game = () => {
 
       $input.value = ""
 
-      const hasMissedLetters = $currentWord.querySelectorAll('letter:not(".correct")').length > 0
+      $input.value = ""
 
-      hasMissedLetters
-      ? $currentWord.classList.add('marked')
-      : $currentWord.classList.add('correct')
+      const hasMissedLetters = $currentWord.querySelectorAll('letter:not(.correct)').length > 0
+
+      const classToAd = hasMissedLetters ? 'marked' : 'correct';
+      $currentWord.classList.add(classToAd)
+      return
+    }
+
+    if(key == 'Backspace'){
+      const $prevWord = $currentWord.previousElementSibling
+      const $prevLetter = $prevWord.querySelector('letter')
+
+      if(!$prevLetter && !$prevWord){
+        return
+      }
+
     }
 
   }
