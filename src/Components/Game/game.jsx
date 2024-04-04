@@ -93,10 +93,16 @@ const Game = () => {
       if (!$prevLetter ) {
         event.preventDefault()
         const $wordMarked = $paragraph.querySelector('word.marked')
+
         if ($wordMarked && !$prevLetter) {
           event.preventDefault()
           $prevWord.classList.remove('marked')
           $prevWord.classList.add('active')
+
+          const $letterToGo = $prevWord.querySelector('letter:last-child')
+
+          $currentLetter.classList.remove('active')
+          $letterToGo.classList.add('active')
         }
 
       }
