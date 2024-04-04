@@ -60,35 +60,19 @@ const Game = () => {
     const {key} = event;
     if(key == " "){
       event.preventDefault()
+
+      const $nextWord = $currentWord.nextElementSibling
+      const $nextLetter = $currentWord.querySelector('letter')
+
+      $currentWord.classList.remove('active')
+      $currentLetter.classList.remove('active')
+
+      $nextWord.classList.add('active')
+      $nextLetter.classList.add('active')
+
+      $input.value = ""
     }
 
-  }
-
-  function onKeyUp(){
-    const $currentWord = $paragraph.querySelector('word.active')
-    const $currentLetter = $currentWord.querySelector('letter.active')
-
-    
-    const currentWord = $currentWord.innerText.trim()
-    $input.maxLength = currentWord.lenght
-
-    console.log({value:$input.value, currentWord});
-    
-
-    const $allLetters = $currentWord.querySelectorAll('letter')
-
-    $input.value.slice("").forEach((char, index)=>{
-      const $letter = $allLetters[index]
-      const letterToCheck = currentWord[index]
-
-      const isCorrect = char == letterToCheck;
-
-      const letterClass = isCorrect ? "correct" : "incorrect"
-
-      $letter.classList.add(letterClass)
-
-    })
-    
   }
 
   function gameOver() {
