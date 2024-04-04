@@ -103,6 +103,10 @@ const Game = () => {
 
           $currentLetter.classList.remove('active')
           $letterToGo.classList.add('active')
+
+          $input.value = [
+            ...$prevWord.querySelectorAll('letter.correct, letter.incorrect ').map($el=>$el.innerText).join('')
+          ]
         }
 
       }
