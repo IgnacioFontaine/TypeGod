@@ -83,7 +83,7 @@ const Game = () => {
 
     if(key == 'Backspace'){
       const $prevWord = $currentWord.previousElementSibling
-      const $prevLetter = $prevWord.querySelector('letter')
+      const $prevLetter = $currentLetter?.previousElementSibling
 
       if(!$prevLetter && !$prevWord){
         return
