@@ -85,8 +85,20 @@ const Game = () => {
       const $prevWord = $currentWord.previousElementSibling
       const $prevLetter = $currentLetter?.previousElementSibling
 
-      if(!$prevLetter && !$prevWord){
+      if (!$prevLetter && !$prevWord) {
+        event.preventDefault()
         return
+      }
+
+      if (!$prevLetter ) {
+        event.preventDefault()
+        const $wordMarked = $paragraph.querySelector('word.marked')
+        if ($wordMarked && !$prevLetter) {
+          event.preventDefault()
+          $prevWord.classList.remove('marked')
+          $prevWord.classList.add('active')
+        }
+
       }
 
     }
