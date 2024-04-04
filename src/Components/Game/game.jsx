@@ -71,6 +71,12 @@ const Game = () => {
       $nextLetter.classList.add('active')
 
       $input.value = ""
+
+      const hasMissedLetters = $currentWord.querySelectorAll('letter:not(".correct")').length > 0
+
+      hasMissedLetters
+      ? $currentWord.classList.add('marked')
+      : $currentWord.classList.add('correct')
     }
 
   }
